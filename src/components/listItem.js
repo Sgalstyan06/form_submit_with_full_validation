@@ -16,7 +16,7 @@ export default function ListItem() {
   return (
     <div>
       <Form onAdd={(list) =>{
-        console.log("list", list);
+        // console.log("list", list);
         setRenderItem([...list])
       }} />
       {renderItem &&

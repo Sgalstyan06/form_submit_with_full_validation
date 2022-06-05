@@ -19,7 +19,7 @@ export default function Form({ onAdd }) {
       setStore(listItem);
     }
     onAdd(listItem);
-    console.log("listItem", listItem);
+    // console.log("listItem", listItem);
   }, [listItem]);
 
   return (
@@ -27,11 +27,29 @@ export default function Form({ onAdd }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setListItem([...listItem, { name, email, url: url ? url : "no url" }]);
-          setName("");
-          setEmail("");
-          setUrl("");
-
+          console.log("name", isValidName(name));
+          console.log("email", isValidEmail(email));
+          console.log("url", isValidURL(url));
+          if (isValidName(name) !== false && isValidEmail(email) !== null) {
+            if (  url === "") {
+              // console.log("url", url);
+              setListItem([
+                ...listItem,
+                { name, email, url: url ? url : "no url" },
+              ]);
+              setName("");
+              setEmail("");
+              setUrl("");
+            }else if(isValidURL(url) !== false){
+              setListItem([
+                ...listItem,
+                { name, email, url: url ? url : "no url" },
+              ]);
+              setName("");
+              setEmail("");
+              setUrl("");
+            }
+          }
           console.log("listItem", listItem);
         }}
       >
