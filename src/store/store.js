@@ -3,5 +3,5 @@ export function setStore(items){
 }
 
 export function getStore(items){
-    return localStorage.getItem("key-items")
+    return JSON.parse(localStorage.getItem("key-items"))
 }
