@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { setStore, getStore } from "../store/store";
+import { setStore, getStore, removeClearStore } from "../store/store";
 import {
   isValidName,
   isValidEmail,
   isValidURL,
 } from "../validation/validation";
 
-export default function Form({onAdd}) {
+export default function Form({ onAdd }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
@@ -31,8 +31,7 @@ export default function Form({onAdd}) {
           setName("");
           setEmail("");
           setUrl("");
-          
-          // debugger;
+
           console.log("listItem", listItem);
         }}
       >
@@ -59,7 +58,16 @@ export default function Form({onAdd}) {
         />
         <div>
           <button>Submit</button>
-          <input type="reset" />
+          <input
+            type="reset"
+            onClick={() => {
+              removeClearStore();
+              setListItem([]);
+              setName("");
+              setEmail("");
+              setUrl("");
+            }}
+          />
         </div>
       </form>
     </div>

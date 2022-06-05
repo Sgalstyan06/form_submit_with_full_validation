@@ -12,12 +12,7 @@ export default function ListItem() {
     }
   }, []);
 
-  // useEffect(() =>{}, [renderItem])
-
-  // function onAdd(list) {
-  //   setRenderItem(list);
-  //   console.log("is listItem render");
-  // }
+  
   return (
     <div>
       <Form onAdd={(list) =>{
