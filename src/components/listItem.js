@@ -7,7 +7,7 @@ export default function ListItem() {
   return (
     <div>
       <Form/>
-      <Item/>
+      <Item />
     </div>
   );
 }
