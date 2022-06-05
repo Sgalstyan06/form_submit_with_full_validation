@@ -27,7 +27,7 @@ export default function Form({ onAdd }) {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          setListItem([...listItem, { name, email, url }]);
+          setListItem([...listItem, { name, email, url: url ? url : "no url" }]);
           setName("");
           setEmail("");
           setUrl("");
