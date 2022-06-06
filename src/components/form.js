@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { setStore, getStore, removeClearStore } from "../store/store";
+import "../App.css";
 import {
   isValidName,
   isValidEmail,
@@ -31,8 +32,7 @@ export default function Form({ onAdd }) {
           console.log("email", isValidEmail(email));
           console.log("url", isValidURL(url));
           if (isValidName(name) !== false && isValidEmail(email) !== null) {
-            if (  url === "") {
-              // console.log("url", url);
+            if (url === "") {
               setListItem([
                 ...listItem,
                 { name, email, url: url ? url : "no url" },
@@ -40,7 +40,7 @@ export default function Form({ onAdd }) {
               setName("");
               setEmail("");
               setUrl("");
-            }else if(isValidURL(url) !== false){
+            } else if (isValidURL(url) !== false) {
               setListItem([
                 ...listItem,
                 { name, email, url: url ? url : "no url" },
@@ -54,7 +54,9 @@ export default function Form({ onAdd }) {
         }}
       >
         <input
+          className="form-input"
           type="text"
+          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -62,7 +64,9 @@ export default function Form({ onAdd }) {
 
         <div>
           <input
+            className="form-input"
             type="email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -70,22 +74,29 @@ export default function Form({ onAdd }) {
         </div>
 
         <input
+          className="Your-Company-input"
           type="url"
+          placeholder="Yout Company Name"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
-        <div>
-          <button>Submit</button>
-          <input
-            type="reset"
-            onClick={() => {
-              removeClearStore();
-              setListItem([]);
-              setName("");
-              setEmail("");
-              setUrl("");
-            }}
-          />
+        <div className="deferrence">
+          <div className="lets-talk">Let's talk about your idea</div>
+          <div className="buttons-block">
+            
+            <button className="submit button">Submit</button>
+            <input
+              type="reset"
+              className="reset button"
+              onClick={() => {
+                removeClearStore();
+                setListItem([]);
+                setName("");
+                setEmail("");
+                setUrl("");
+              }}
+            />
+          </div>
         </div>
       </form>
     </div>
