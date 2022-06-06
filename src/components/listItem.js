@@ -13,18 +13,23 @@ export default function ListItem() {
     }
   }, []);
 
-  
   return (
-    <div className="Listitem">
-      <span className="contact">CONTACT US</span>
-      <h1>Get In Touch</h1>
+    <div className="main">
       <div className="form-with-iamge-block">
-      <Form onAdd={(list) =>{
-        
-        setRenderItem([...list])
-      }} />
-      <div className="image"><img src= {image}/></div>
+        <div className="form">
+          <span className="contact">CONTACT US</span>
+          <h1>Get In Touch</h1>
+          <Form
+            onAdd={(list) => {
+              setRenderItem([...list]);
+            }}
+          />
+        </div>
+        <div className="image">
+          <img src={image} />
+        </div>
       </div>
+      <div className='blue-fone'></div>
       {renderItem &&
         renderItem.length > 0 &&
         renderItem.map((item, index) => {

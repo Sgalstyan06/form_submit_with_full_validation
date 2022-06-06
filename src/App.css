@@ -1,79 +1,158 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.App{
+.App {
   width: 90%;
-  margin: 20px;
-  border-top: 1px solid grey;
-  height: 70vh;
-  padding: 20px;
-  
-  box-shadow: 0px 1px 3px gray inset;
+  margin: 20px auto;
+  height: 100px;
+  border-top: 1px solid rgba(245, 236, 236, 0.2);
+  box-shadow: 0 0.5px 0.5px gray inset;
 }
 
-.blue-fone{
-  background-color: blue;
-  width: 100%;
-  height: 20%;
+.blue-fone {
+  position: absolute;
+  top: 415px;
+  z-index: 1;
+  background-color: rgb(8, 8, 75);
+  width: 90%;
+  height: 12vh;
 }
 
-.form-with-iamge-block{
-  
+.form-with-iamge-block {
+  position: relative;
+  z-index: 4;
+  background-color: white;
+  margin: 10px auto;
+  padding: 25px 25px 0 25px;
+
+  width: 85%;
   display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: space-between;
-
-  
+  flex-wrap: wrap;
+  align-items: center;
+  border-left: 1px solid rgb(205, 197, 197);
+  border-right: 1px solid rgb(205, 197, 197);
+  border-bottom: 1px solid rgb(205, 197, 197);
 }
 
-.contact{
+.form,
+.image {
+  width: 48%;
+}
+
+.contact {
   color: rgb(22, 22, 111);
   font-weight: 500;
 }
-.form-input{
+.form-input {
   border: none;
   border-bottom: 1px solid grey;
-  width: 300px;
+  width: 90%;
   margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.form-input:focus{
+.form-input:focus {
   outline: none;
   border-bottom: 1px solid black;
 }
 
-.Your-Company-input{
+.Your-Company-input:focus {
+  outline: none;
+  border-bottom: 2px solid black;
+}
+
+.Your-Company-input {
   border: none;
   border-bottom: 2px solid rgb(41, 40, 40);
-  width: 300px;
+  width: 90%;
   margin-top: 30px;
 }
 
-.deferrence{
+.deferrence {
   margin-top: 70px;
 }
 
-.lets-talk{
-  width: 300px;
-  border-bottom: 1px solid grey;
-  padding-bottom: 15px;
-  color: grey;
-}
-
-.buttons-block{
+.buttons-block {
   margin: 30px 0;
 }
 
- .button{
+.button {
   width: 100px;
   padding: 8px;
   background-color: rgb(144, 218, 144);
   cursor: pointer;
   border: none;
 }
-.reset{
+
+.reset {
   margin-left: 20px;
+}
+
+.lets-talk {
+  width: 90%;
+  border-bottom: 1px solid grey;
+  padding-bottom: 15px;
+  color: grey;
+}
+
+.image img {  
+  width: 282px;
+  max-width: 100%;
+}
+
+.items{
+  width: 90%;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.item{
+  width: 80%;
+  margin-top: 5px;
+  background-color: rgb(144, 218, 144);
+}
+
+@media screen and (max-width:700px) {
+  .form-with-iamge-block{
+    flex-direction: column-reverse;
+    
+  }
+  .form, .image{
+    width: 100%;
+  }
+  h1{
+    font-size: 20px;
+  }
+  .contact{
+    font-size: 12px;
+  }
+  .reset{
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  .button{
+    width: 80%;
+  }
+
+}
+
+@media screen and(max-width:480px) {
+  .form-with-iamge-block{
+    flex-direction: column-reverse;
+  }
+
+  h1{
+    font-size: 14px;
+  }
+  .contact{
+    font-size: 10px;
+  }
+  .reset{
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }

@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <ListItem/>
-      <div className='blue-fone'></div>
+      
     </div>
   );
 }
