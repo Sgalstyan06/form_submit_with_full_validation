@@ -27,7 +27,6 @@ export default function Form({ onAdd }) {
       setStore(listItem);
     }
     onAdd(listItem);
-    
   }, [listItem]);
 
   const onSubmit = (data) => {
@@ -42,7 +41,6 @@ export default function Form({ onAdd }) {
           <TextField
             className="first text-field"
             id="standard-basic"
-            // label="name"
             placeholder="name"
             variant="standard"
             type="text"
@@ -55,16 +53,11 @@ export default function Form({ onAdd }) {
             })}
           />
         </div>
-        <div 
-        // style={{ height: 28 }}
-        className="error"
-        >
+        <div className="error">
           {errors?.name && <p>{errors?.name?.message}</p>}
         </div>
         <TextField
-          // className="second text-field"
           id="standard-basic"
-          // label="email"
           placeholder="email"
           variant="standard"
           type="email"
@@ -78,15 +71,10 @@ export default function Form({ onAdd }) {
           })}
         />
 
-        <div 
-        // style={{ height: 28 }}
-        className="error"
-        >{errors?.email?.message}</div>
+        <div className="error">{errors?.email?.message}</div>
         <div>
           <TextField
-            // className="third text-field"
             id="standard-basic"
-            // label="url"
             placeholder="url"
             variant="standard"
             type="url"
@@ -99,13 +87,10 @@ export default function Form({ onAdd }) {
             })}
           />
         </div>
-        <div 
-        // style={{ height: 28 }}
-        className="error"
-        >{errors?.url?.message}</div>
-        <input type="submit" className="submit-btn"/>
+        <div className="error">{errors?.url?.message}</div>
+        <input type="submit" className="submit btn" />
         <input
-          className="reset-btn"
+          className="reset btn"
           type="reset"
           onClick={() => {
             removeClearStore();
