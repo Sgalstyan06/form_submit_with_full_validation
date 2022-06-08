@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { setStore, getStore, removeClearStore } from "../store/store";
 import "../App.css";
+import { TextField } from "@mui/material";
 import {
   isValidName,
   isValidEmail,
@@ -8,7 +9,7 @@ import {
 } from "../validation/validation";
 import { useForm } from "react-hook-form";
 
-export default function Form({ onAdd }) {  
+export default function Form({ onAdd }) {
   const [listItem, setListItem] = useState(
     getStore() && getStore().length > 0 ? getStore() : []
   );
@@ -26,20 +27,22 @@ export default function Form({ onAdd }) {
       setStore(listItem);
     }
     onAdd(listItem);
-    // console.log("listItem", listItem);
+    
   }, [listItem]);
 
   const onSubmit = (data) => {
     console.log(data);
     setListItem([...listItem, data]);
-
     reset();
   };
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input
+          <TextField
+            id="standard-basic"
+            label="name"
+            variant="standard"
             type="text"
             {...register("name", {
               required: "this field is required",
@@ -53,7 +56,10 @@ export default function Form({ onAdd }) {
         <div style={{ height: 28 }}>
           {errors?.name && <p>{errors?.name?.message}</p>}
         </div>
-        <input
+        <TextField
+          id="standard-basic"
+          label="email"
+          variant="standard"
           type="email"
           {...register("email", {
             required: "this field is required",
@@ -64,9 +70,13 @@ export default function Form({ onAdd }) {
             },
           })}
         />
+
         <div style={{ height: 28 }}>{errors?.email?.message}</div>
         <div>
-          <input
+          <TextField
+            id="standard-basic"
+            label="url"
+            variant="standard"
             type="url"
             {...register("url", {
               pattern: {
@@ -81,7 +91,6 @@ export default function Form({ onAdd }) {
         <input type="submit" />
         <input
           type="reset"
-          // className="reset button"
           onClick={() => {
             removeClearStore();
             setListItem([]);
