@@ -38,10 +38,12 @@ export default function Form({ onAdd }) {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div id="all-inp">
           <TextField
+            className="first text-field"
             id="standard-basic"
-            label="name"
+            // label="name"
+            placeholder="name"
             variant="standard"
             type="text"
             {...register("name", {
@@ -53,12 +55,17 @@ export default function Form({ onAdd }) {
             })}
           />
         </div>
-        <div style={{ height: 28 }}>
+        <div 
+        // style={{ height: 28 }}
+        className="error"
+        >
           {errors?.name && <p>{errors?.name?.message}</p>}
         </div>
         <TextField
+          // className="second text-field"
           id="standard-basic"
-          label="email"
+          // label="email"
+          placeholder="email"
           variant="standard"
           type="email"
           {...register("email", {
@@ -71,11 +78,16 @@ export default function Form({ onAdd }) {
           })}
         />
 
-        <div style={{ height: 28 }}>{errors?.email?.message}</div>
+        <div 
+        // style={{ height: 28 }}
+        className="error"
+        >{errors?.email?.message}</div>
         <div>
           <TextField
+            // className="third text-field"
             id="standard-basic"
-            label="url"
+            // label="url"
+            placeholder="url"
             variant="standard"
             type="url"
             {...register("url", {
@@ -87,9 +99,13 @@ export default function Form({ onAdd }) {
             })}
           />
         </div>
-        <div style={{ height: 28 }}>{errors?.url?.message}</div>
-        <input type="submit" />
+        <div 
+        // style={{ height: 28 }}
+        className="error"
+        >{errors?.url?.message}</div>
+        <input type="submit" className="submit-btn"/>
         <input
+          className="reset-btn"
           type="reset"
           onClick={() => {
             removeClearStore();

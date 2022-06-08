@@ -4,155 +4,134 @@
   box-sizing: border-box;
 }
 
-.App {
-  width: 90%;
-  margin: 20px auto;
-  height: 100px;
-  border-top: 1px solid rgba(245, 236, 236, 0.2);
-  box-shadow: 0 0.5px 0.5px gray inset;
-}
-
-.blue-fone {
-  position: absolute;
-  top: 415px;
-  z-index: 1;
-  background-color: rgb(8, 8, 75);
-  width: 90%;
-  height: 12vh;
-}
-
 .form-with-iamge-block {
-  position: relative;
-  z-index: 4;
-  background-color: white;
-  margin: 10px auto;
-  padding: 25px 25px 0 25px;
-
-  width: 85%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  border-left: 1px solid rgb(205, 197, 197);
-  border-right: 1px solid rgb(205, 197, 197);
-  border-bottom: 1px solid rgb(205, 197, 197);
+  width: 1200px;
+  height: 617px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.form,
-.image {
-  width: 48%;
+.form {
+  width: 513px;
+  height: 517px;
+  margin-top: 50px;
+  margin-left: 71px;
 }
 
 .contact {
-  color: rgb(22, 22, 111);
+  display: block;
+  width: 118px;
+  height: 22px;
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #001d6b;
 }
-.form-input {
-  border: none;
-  border-bottom: 1px solid grey;
-  width: 90%;
-  margin-top: 30px;
+
+h1 {
+  width: 276px;
+  height: 50px;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #121212;
+}
+
+.image {
+  width: 513px;
+  height: 517px;
+  border: 1px solid black;
+  background-image: url("./img/form-image.jpg");
+  margin-top: 50px;
+  margin-left: 32px;
+}
+
+.MuiInput-input.MuiInputBase-input.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  /* margin-top: 90px; */
+  width: 513px;
+  height: 1px;
+  margin-top: 0px;
+  width: 513px;
+  height: 35px;
+  box-sizing: border-box;
+}
+
+.MuiInput-root.MuiInput-underline.MuiInputBase-root.MuiInputBase-colorPrimary.MuiInputBase-formControl.css-1ptx2yq-MuiInputBase-root-MuiInput-root {
+  margin-top: 0px;
+  box-sizing: border-box;
+}
+
+#all-inp{
+  margin-top: 55px;
+}
+
+.error {
+  margin-top: 11px;
+  width: 513px;
+  height: 16px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 160%;
+  /* identical to box height, or 16px */
+
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.5px;
+
+  /* Error */
+
+  color: #d50d0d;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 2;
+  flex-grow: 0;
 }
 
-.form-input:focus {
-  outline: none;
-  border-bottom: 1px solid black;
-}
-
-.Your-Company-input:focus {
-  outline: none;
-  border-bottom: 2px solid black;
-}
-
-.Your-Company-input {
-  border: none;
-  border-bottom: 2px solid rgb(41, 40, 40);
-  width: 90%;
-  margin-top: 30px;
-}
-
-.deferrence {
-  margin-top: 70px;
-}
-
-.buttons-block {
-  margin: 30px 0;
-}
-
-.button {
-  width: 100px;
-  padding: 8px;
-  background-color: rgb(144, 218, 144);
-  cursor: pointer;
-  border: none;
-}
-
-.reset {
-  margin-left: 20px;
-}
-
-.lets-talk {
-  width: 90%;
-  border-bottom: 1px solid grey;
-  padding-bottom: 15px;
-  color: grey;
-}
-
-.image img {  
-  width: 282px;
-  max-width: 100%;
-}
-
-.items{
-  width: 90%;
-  margin-top: 20px;
-  padding: 20px;
-}
-
-.item{
-  width: 80%;
-  margin-top: 5px;
-  background-color: rgb(144, 218, 144);
-}
-
-@media screen and (max-width:700px) {
-  .form-with-iamge-block{
+/* @media screen and (max-width: 700px) {
+  .form-with-iamge-block {
     flex-direction: column-reverse;
-    
   }
-  .form, .image{
+  .form,
+  .image {
     width: 100%;
   }
-  h1{
+  h1 {
     font-size: 20px;
   }
-  .contact{
+  .contact {
     font-size: 12px;
   }
-  .reset{
+  .reset {
     margin-left: 0;
     margin-top: 5px;
   }
-  .button{
+  .button {
     width: 80%;
   }
-
 }
 
 @media screen and(max-width:480px) {
-  .form-with-iamge-block{
+  .form-with-iamge-block {
     flex-direction: column-reverse;
   }
 
-  h1{
+  h1 {
     font-size: 14px;
   }
-  .contact{
+  .contact {
     font-size: 10px;
   }
-  .reset{
+  .reset {
     margin-left: 0;
     margin-top: 5px;
   }
-}
+} */

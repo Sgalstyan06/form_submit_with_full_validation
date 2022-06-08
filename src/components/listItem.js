@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Item from "./item";
 import Form from "./form";
 import { getStore } from "../store/store";
-import image from "../img/image.jpg";
+import image from "../img/form-image.jpg";
 
 export default function ListItem() {
   const [renderItem, setRenderItem] = useState([]);
@@ -31,7 +31,7 @@ export default function ListItem() {
           />
         </div>
         <div className="image">
-          <img src={image} />
+          {/* <img src={image} /> */}
         </div>
       </div>
       <div className='blue-fone'></div>
