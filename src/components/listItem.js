@@ -7,11 +7,14 @@ import image from "../img/image.jpg";
 export default function ListItem() {
   const [renderItem, setRenderItem] = useState([]);
 
-  useEffect(() => {
-    if (getStore() && getStore().length > 0) {
-      setRenderItem(getStore());
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (getStore() && getStore().length > 0) {
+  //     setRenderItem(getStore());
+  //   }
+  // }, []);
+
+  
+ console.log("renderItem", renderItem);
 
   return (
     <div className="main">
@@ -21,8 +24,10 @@ export default function ListItem() {
           <h1>Get In Touch</h1>
           <Form
             onAdd={(list) => {
+              
               setRenderItem([...list]);
             }}
+            
           />
         </div>
         <div className="image">
@@ -33,6 +38,7 @@ export default function ListItem() {
       {renderItem &&
         renderItem.length > 0 &&
         renderItem.map((item, index) => {
+          
           return (
             <Item
               key={index}

@@ -6,98 +6,87 @@ import {
   isValidEmail,
   isValidURL,
 } from "../validation/validation";
+import { useForm } from "react-hook-form";
 
-export default function Form({ onAdd }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [url, setUrl] = useState("");
+export default function Form({ onAdd }) {  
   const [listItem, setListItem] = useState(
     getStore() && getStore().length > 0 ? getStore() : []
   );
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
+
   useEffect(() => {
     if (listItem && listItem.length > 0) {
+      console.log("test onAdd");
       setStore(listItem);
     }
     onAdd(listItem);
     // console.log("listItem", listItem);
   }, [listItem]);
 
+  const onSubmit = (data) => {
+    console.log(data);
+    setListItem([...listItem, data]);
+
+    reset();
+  };
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log("name", isValidName(name));
-          console.log("email", isValidEmail(email));
-          console.log("url", isValidURL(url));
-          if (isValidName(name) !== false && isValidEmail(email) !== null) {
-            if (url === "") {
-              setListItem([
-                ...listItem,
-                { name, email, url: url ? url : "no url" },
-              ]);
-              setName("");
-              setEmail("");
-              setUrl("");
-            } else if (isValidURL(url) !== false) {
-              setListItem([
-                ...listItem,
-                { name, email, url: url ? url : "no url" },
-              ]);
-              setName("");
-              setEmail("");
-              setUrl("");
-            }
-          }
-          console.log("listItem", listItem);
-        }}
-      >
-        <input
-          className="form-input"
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <input
-            className="form-input"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            type="text"
+            {...register("name", {
+              required: "this field is required",
+              pattern: {
+                value: /^[a-zA-Z ]{2,30}$/,
+                message: "Please write letters ",
+              },
+            })}
           />
         </div>
-
-        <input
-          className="Your-Company-input"
-          type="url"
-          placeholder="Yout Company Name"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-        />
-        <div className="deferrence">
-          <div className="lets-talk">Let's talk about your idea</div>
-          <div className="buttons-block">
-            
-            <button className="submit button">Submit</button>
-            <input
-              type="reset"
-              className="reset button"
-              onClick={() => {
-                removeClearStore();
-                setListItem([]);
-                setName("");
-                setEmail("");
-                setUrl("");
-              }}
-            />
-          </div>
+        <div style={{ height: 28 }}>
+          {errors?.name && <p>{errors?.name?.message}</p>}
         </div>
+        <input
+          type="email"
+          {...register("email", {
+            required: "this field is required",
+            pattern: {
+              value:
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: "Please write correct email",
+            },
+          })}
+        />
+        <div style={{ height: 28 }}>{errors?.email?.message}</div>
+        <div>
+          <input
+            type="url"
+            {...register("url", {
+              pattern: {
+                value:
+                  /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%.\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%\+.~#?&//=]*)/g,
+                message: "Please write correct url",
+              },
+            })}
+          />
+        </div>
+        <div style={{ height: 28 }}>{errors?.url?.message}</div>
+        <input type="submit" />
+        <input
+          type="reset"
+          // className="reset button"
+          onClick={() => {
+            removeClearStore();
+            setListItem([]);
+          }}
+        />
       </form>
     </div>
   );
