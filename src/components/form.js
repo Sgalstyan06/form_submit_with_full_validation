@@ -75,7 +75,7 @@ export default function Form({ onAdd }) {
         <div>
           <TextField
             id="standard-basic"
-            placeholder="url"
+            placeholder="Your Company Name"
             variant="standard"
             type="url"
             {...register("url", {
