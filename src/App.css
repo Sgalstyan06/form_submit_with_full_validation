@@ -5,6 +5,7 @@
 }
 
 .form-with-iamge-block {
+  display: flex;
   width: 1200px;
   height: 617px;
   background: #ffffff;
