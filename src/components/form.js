@@ -10,6 +10,7 @@ import {
 import { useForm } from "react-hook-form";
 
 export default function Form({ onAdd }) {
+  
   const [listItem, setListItem] = useState(
     getStore() && getStore().length > 0 ? getStore() : []
   );
@@ -23,7 +24,7 @@ export default function Form({ onAdd }) {
 
   useEffect(() => {
     if (listItem && listItem.length > 0) {
-      console.log("test onAdd");
+      
       setStore(listItem);
     }
     onAdd(listItem);
@@ -55,6 +56,7 @@ export default function Form({ onAdd }) {
         </div>
         <div className="error">
           {errors?.name && <p>{errors?.name?.message}</p>}
+          {console.log("errors", errors)}
         </div>
         <TextField
           id="standard-basic"

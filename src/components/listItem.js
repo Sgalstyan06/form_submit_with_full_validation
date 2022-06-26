@@ -14,7 +14,7 @@ export default function ListItem() {
   // }, []);
 
   
- console.log("renderItem", renderItem);
+ 
 
   return (
     <div className="main">
